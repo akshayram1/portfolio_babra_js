@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Akshay Chame</title>
+    <!-- Adding favicon -->
+    <link rel="icon" href="A-removebg-preview.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="A-removebg-preview.ico" type="image/x-icon">
+    <link rel="stylesheet" href="src/scss/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Webflow scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/webflow/1.8.20/webflow.min.js"></script>
+    <style>
+        /* Enhanced About Page Styles */
+        .about-header {
+            position: relative;
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 3rem 0;
+        }
+
+        .about-heading {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .profile-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .profile-image-wrapper {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid var(--accent-color);
+            box-shadow: 0 10px 30px rgba(255, 94, 125, 0.3);
+            position: relative;
+            z-index: 2;
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        .profile-image-wrapper:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(255, 94, 125, 0.5);
+        }
+
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-glow {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255, 94, 125, 0.3) 0%, rgba(255, 94, 125, 0) 70%);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            animation: pulse 5s infinite alternate;
+        }
+
+        .about-content {
+            background-color: rgba(30, 30, 56, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .about-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .about-section-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .about-section-title i {
+            font-size: 1.5rem;
+            background: linear-gradient(135deg, var(--accent-color), #8A5FFF);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .section-divider {
+            height: 3px;
+            background: linear-gradient(to right, var(--accent-color), transparent);
+            margin: 2.5rem 0;
+            border-radius: 2px;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .skill-category {
+            background-color: rgba(35, 35, 45, 0.6);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            background-color: rgba(35, 35, 45, 0.8);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .skill-heading {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-heading i {
+            font-size: 1.1rem;
+        }
+
+        .skill-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .skill-item {
+            margin-bottom: 0.5rem;
+            padding-left: 1.2rem;
+            position: relative;
+            color: var(--text-muted);
+        }
+
+        .skill-item::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+        }
+
+        .experience-timeline {
+            position: relative;
+            padding-left: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--accent-color), rgba(255, 94, 125, 0.2));
+        }
+
+        .timeline-entry {
+            position: relative;
+            margin-bottom: 2rem;
+            padding-left: 1.5rem;
+        }
+
+        .timeline-entry::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            box-shadow: 0 0 0 4px rgba(255, 94, 125, 0.2);
+        }
+
+        .timeline-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+        }
+
+        .timeline-subtitle {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            color: var(--accent-color);
+            font-style: italic;
+        }
+
+        .timeline-content {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        /* Updated styling for about page project cards */
+        .about-content .project-card {
+            background-color: rgba(35, 35, 45, 0.6);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            /* Make sure cards are visible */
+            opacity: 1 !important;
+            transform: none !important;
+            perspective: none !important;
+            visibility: visible !important;
+        }
+
+        .about-content .project-card:hover {
+            transform: translateY(-5px);
+            background-color: rgba(35, 35, 45, 0.8);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            border-color: rgba(255, 94, 125, 0.2);
+        }
+
+        .about-content .project-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            color: var(--text-light);
+        }
+
+        .about-content .project-description {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tech-tag {
+            background-color: rgba(255, 94, 125, 0.15);
+            color: var(--text-light);
+            padding: 0.3rem 0.7rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 94, 125, 0.3);
+        }
+
+        .tech-tag:hover {
+            background-color: rgba(255, 94, 125, 0.25);
+            transform: translateY(-2px);
+        }
+
+        .about-social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            justify-content: center;
+        }
+
+        .about-social-link {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(255, 94, 125, 0.2), rgba(138, 95, 255, 0.2));
+            color: var(--text-light);
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .about-social-link:hover {
+            transform: translateY(-3px);
+            background: linear-gradient(135deg, rgba(255, 94, 125, 0.4), rgba(138, 95, 255, 0.4));
+            box-shadow: 0 5px 15px rgba(255, 94, 125, 0.3);
+        }
+
+        .achievements-container {
+            margin-top: 1.5rem;
+        }
+
+        .achievement-item {
+            background-color: rgba(35, 35, 45, 0.6);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .achievement-item:hover {
+            transform: translateY(-5px);
+            background-color: rgba(35, 35, 45, 0.8);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            border-color: rgba(255, 94, 125, 0.2);
+        }
+
+        .achievement-icon {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            background: rgba(255, 94, 125, 0.15);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .achievement-content {
+            flex-grow: 1;
+        }
+
+        .achievement-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+        }
+
+        .achievement-description {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+
+            .skills-container,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .achievement-item {
+                flex-direction: column;
+            }
+
+            .achievement-icon {
+                margin-bottom: 1rem;
+            }
+        }
+
+        /* Animation for elements */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body data-barba="wrapper" class="body">
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <div class="w-nav navbar">
+        <div class="w-container container">
+            <a href="index.html" class="w-nav-brand">
+                <!-- Replacing text logo with image logo -->
+                <img src="A-removebg-preview.ico" alt="Akshay Chame Logo" class="logo-img">
+            </a>
+            <nav role="navigation" class="w-nav-menu">
+                <ul class="w-list-unstyled">
+                    <li><a href="index.html" class="w-nav-link">Home</a></li>
+                    <li><a href="projects.html" class="w-nav-link">Projects</a></li>
+                    <li><a href="about.html" class="w-nav-link w--current">About</a></li>
+                    <li><a href="resume.html" class="w-nav-link">Resume</a></li>
+                    <li><a href="contact.html" class="w-nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <main data-barba="container" data-barba-namespace="about" class="main-wrapper">
+        <div class="overlay"></div>
+        <div class="webgl-container webgl-subdued" id="webgl-canvas"></div>
+
+        <div class="w-container page-content">
+            <section class="about-header fade-in">
+                <h1 class="about-heading">About Me</h1>
+                <div class="profile-container">
+                    <div class="profile-glow"></div>
+                    <div class="profile-image-wrapper">
+                        <img src="op.jpeg" alt="Akshay Chame" class="profile-image">
+                    </div>
+                </div>
+
+                <div class="about-social-links">
+                    <a href="https://github.com/akshayram1" class="about-social-link" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/akshay-chame-b43bb8209/" class="about-social-link"
+                        target="_blank">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://x.com/Akshay99099945" class="about-social-link" target="_blank">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://www.instagram.com/akshay_chame/" class="about-social-link" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </section>
+
+            <div class="about-content fade-in">
+                <h2 class="about-section-title"><i class="fas fa-user"></i> About Me</h2>
+                <div class="w-richtext">
+                    <p>I am Akshay Chame, a final-year B.Tech Computer Science student at VIT, graduating in June 2025.
+                        My passion lies at the intersection of Artificial Intelligence, Machine Learning, and full-stack
+                        development. I specialize in building intelligent systems that address real-world challenges,
+                        with a keen interest in GenAI and cloud-based solutions.</p>
+                </div>
+
+                <div class="section-divider"></div>
+
+                <h2 class="about-section-title"><i class="fas fa-briefcase"></i> Professional Experience</h2>
+                <div class="experience-timeline">
+                    <div class="timeline-entry">
+                        <h3 class="timeline-title">IBM</h3>
+                        <h4 class="timeline-subtitle">Data Science and AI Projects</h4>
+                        <p class="timeline-content">Contributed to projects involving data science and AI, enhancing my
+                            skills in machine learning and data analysis.</p>
+                    </div>
+
+                    <div class="timeline-entry">
+                        <h3 class="timeline-title">Codewits Solutions</h3>
+                        <h4 class="timeline-subtitle">AI Developer</h4>
+                        <p class="timeline-content">Worked on developing AI-driven applications, focusing on integrating
+                            LLMs and vector databases into scalable solutions.</p>
+                    </div>
+                </div>
+
+                <div class="section-divider"></div>
+
+                <h2 class="about-section-title"><i class="fas fa-trophy"></i> Achievements</h2>
+                <div class="achievements-container">
+                    <div class="achievement-item">
+                        <div class="achievement-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <div class="achievement-content">
+                            <h3 class="achievement-title">Smart India Hackathon 2023 Winner</h3>
+                            <p class="achievement-description">Led a team to develop an innovative solution,
+                                demonstrating problem-solving skills and technical expertise.</p>
+                        </div>
+                    </div>
+
+                    <div class="achievement-item">
+                        <div class="achievement-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <div class="achievement-content">
+                            <h3 class="achievement-title">IEEE Pune Blockchain Symposium 2024</h3>
+                            <p class="achievement-description">Participated in discussions on cutting-edge blockchain
+                                technologies, expanding my knowledge in decentralized systems.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-divider"></div>
+
+                <h2 class="about-section-title"><i class="fas fa-laptop-code"></i> Technical Skills</h2>
+                <div class="skills-container">
+                    <div class="skill-category">
+                        <h3 class="skill-heading"><i class="fas fa-code"></i> Programming Languages</h3>
+                        <ul class="skill-list">
+                            <li class="skill-item">Python</li>
+                            <li class="skill-item">Java</li>
+                            <li class="skill-item">JavaScript</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3 class="skill-heading"><i class="fas fa-cogs"></i> Frameworks & Tools</h3>
+                        <ul class="skill-list">
+                            <li class="skill-item">LangChain</li>
+                            <li class="skill-item">Streamlit</li>
+                            <li class="skill-item">Flask</li>
+                            <li class="skill-item">Spring Boot</li>
+                            <li class="skill-item">Power BI</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3 class="skill-heading"><i class="fas fa-brain"></i> AI/ML</h3>
+                        <ul class="skill-list">
+                            <li class="skill-item">LLMs (OpenAI, Cohere, Mistral)</li>
+                            <li class="skill-item">Transformers</li>
+                            <li class="skill-item">Sentiment Analysis</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3 class="skill-heading"><i class="fas fa-database"></i> Databases</h3>
+                        <ul class="skill-list">
+                            <li class="skill-item">MongoDB</li>
+                            <li class="skill-item">PostgreSQL</li>
+                            <li class="skill-item">FAISS</li>
+                            <li class="skill-item">Chroma</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3 class="skill-heading"><i class="fas fa-cloud"></i> Cloud Platforms</h3>
+                        <ul class="skill-list">
+                            <li class="skill-item">Hugging Face Spaces</li>
+                            <li class="skill-item">PythonAnywhere</li>
+                            <li class="skill-item">Firebase</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3 class="skill-heading"><i class="fas fa-tools"></i> Others</h3>
+                        <ul class="skill-list">
+                            <li class="skill-item">Chrome Extensions</li>
+                            <li class="skill-item">RAG architecture</li>
+                            <li class="skill-item">Real-time dashboards</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section-divider"></div>
+
+                <h2 class="about-section-title"><i class="fas fa-project-diagram"></i> Projects & Initiatives</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <h3 class="project-title">Stock News Sentiment Analyzer</h3>
+                        <p class="project-description">Developed and deployed a tool on Hugging Face to analyze market
+                            sentiments.</p>
+                        <div class="tag-container">
+                            <span class="tech-tag">NLP</span>
+                            <span class="tech-tag">Sentiment Analysis</span>
+                            <span class="tech-tag">Hugging Face</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <h3 class="project-title">'Chef' Chatbot</h3>
+                        <p class="project-description">Created an AI-powered chatbot hosted on PythonAnywhere, enhancing
+                            user interaction experiences.</p>
+                        <div class="tag-container">
+                            <span class="tech-tag">LLM</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">PythonAnywhere</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <h3 class="project-title">PDF-based Q&A System</h3>
+                        <p class="project-description">Implemented a system using LangChain and open-source LLMs for
+                            efficient information retrieval.</p>
+                        <div class="tag-container">
+                            <span class="tech-tag">LangChain</span>
+                            <span class="tech-tag">RAG</span>
+                            <span class="tech-tag">Open Source LLMs</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <h3 class="project-title">Finance Mobile App</h3>
+                        <p class="project-description">Designed an application integrating real-time data, goal
+                            tracking, and AI-based financial assistance.</p>
+                        <div class="tag-container">
+                            <span class="tech-tag">Mobile App</span>
+                            <span class="tech-tag">Real-time Data</span>
+                            <span class="tech-tag">AI</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-divider"></div>
+
+                <h2 class="about-section-title"><i class="fas fa-seedling"></i> Continuous Learning</h2>
+                <div class="w-richtext">
+                    <p>I am an avid learner, regularly exploring research papers, attending tech events, and staying
+                        updated with the latest advancements in AI and technology. My curiosity drives me to experiment
+                        with new ideas, such as integrating ancient knowledge systems with modern AI.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="w-container">
+            <p>&copy; 2025 Akshay Chame. All rights reserved.</p>
+            <div class="social-links-footer">
+                <a href="https://github.com/akshayram1" class="social-link-footer"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/akshay-chame-b43bb8209/" class="social-link-footer"><i
+                        class="fab fa-linkedin"></i></a>
+                <a href="https://x.com/Akshay99099945" class="social-link-footer"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/akshay_chame/" class="social-link-footer"><i
+                        class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <canvas id="background-canvas"></canvas>
+
+    <div class="loading-screen">
+        <div class="loader">
+            <div class="neural-loader">
+                <span></span><span></span><span></span><span></span>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://unpkg.com/@barba/core"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="src/js/background.js"></script>
+    <script src="src/js/transitions.js"></script>
+    <script src="src/js/utils.js"></script>
+    <script src="src/js/main.js"></script>
+    <script src="src/js/app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Animate elements when they enter viewport
+            const fadeElements = document.querySelectorAll('.fade-in');
+
+            function checkFade() {
+                fadeElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+
+                    if (elementTop < windowHeight - 100) {
+                        element.classList.add('active');
+                    }
+                });
+            }
+
+            // Initial check on load
+            setTimeout(checkFade, 300);
+
+            // Check on scroll
+            window.addEventListener('scroll', checkFade);
+
+            // Force project cards to be visible on page load
+            const projectCards = document.querySelectorAll('.about-content .project-card');
+            if (projectCards) {
+                projectCards.forEach(card => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'none';
+                    card.style.visibility = 'visible';
+                });
+            }
+
+            // Initialize fade-in animations
+            if (fadeElements) {
+                setTimeout(() => {
+                    fadeElements.forEach((el, index) => {
+                        setTimeout(() => {
+                            el.classList.add('active');
+                        }, index * 100);
+                    });
+                }, 200);
+            }
+        });
+    </script>
+</body>
+
+</html>

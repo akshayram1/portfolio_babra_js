@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Akshay Chame</title>
+    <!-- Adding favicon -->
+    <link rel="icon" href="A-removebg-preview.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="A-removebg-preview.ico" type="image/x-icon">
+    <link rel="stylesheet" href="src/scss/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Webflow scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/webflow/1.8.20/webflow.min.js"></script>
+</head>
+
+<body data-barba="wrapper" class="body">
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <div class="w-nav navbar">
+        <div class="w-container container">
+            <a href="index.html" class="w-nav-brand">
+                <img src="A-removebg-preview.ico" alt="Akshay Chame Logo" class="logo-img">
+            </a>
+            <nav role="navigation" class="w-nav-menu">
+                <ul class="w-list-unstyled">
+                    <li><a href="index.html" class="w-nav-link">Home</a></li>
+                    <li><a href="projects.html" class="w-nav-link">Projects</a></li>
+                    <li><a href="about.html" class="w-nav-link">About</a></li>
+                    <li><a href="resume.html" class="w-nav-link">Resume</a></li>
+                    <li><a href="contact.html" class="w-nav-link w--current">Contact</a></li>
+                </ul>
+            </nav>
+            <!-- Dark mode toggle button removed -->
+        </div>
+    </div>
+
+    <main data-barba="container" data-barba-namespace="contact" class="main-wrapper">
+        <div class="overlay"></div>
+        <div class="webgl-container webgl-subdued" id="webgl-canvas"></div>
+
+        <div class="w-container page-content">
+            <section class="contact-header">
+                <h1 class="contact-heading">Get In Touch</h1>
+                <p class="contact-subheading">Have a question or want to work together? Feel free to reach out.</p>
+            </section>
+
+            <div class="contact-wrapper">
+                <div class="w-layout-grid contact-grid">
+                    <div class="contact-form-column">
+                        <div class="w-form">
+                            <form id="contact-form" name="contact-form" data-name="Contact Form">
+                                <div class="form-field">
+                                    <label for="name" class="form-label">Name</label>
+                                    <input type="text" class="w-input form-input" maxlength="256" name="name"
+                                        data-name="Name" placeholder="Enter your name" id="name" required>
+                                </div>
+                                <div class="form-field">
+                                    <label for="email" class="form-label">Email Address</label>
+                                    <input type="email" class="w-input form-input" maxlength="256" name="email"
+                                        data-name="Email" placeholder="Enter your email address" id="email" required>
+                                </div>
+                                <div class="form-field">
+                                    <label for="subject" class="form-label">Subject</label>
+                                    <input type="text" class="w-input form-input" maxlength="256" name="subject"
+                                        data-name="Subject" placeholder="Enter your subject" id="subject" required>
+                                </div>
+                                <div class="form-field">
+                                    <label for="message" class="form-label">Message</label>
+                                    <textarea id="message" name="message" placeholder="Enter your message"
+                                        maxlength="5000" data-name="Message" class="w-input form-textarea"
+                                        required></textarea>
+                                </div>
+                                <input type="submit" value="Send Message" data-wait="Please wait..."
+                                    class="w-button submit-button">
+                            </form>
+                            <div class="w-form-done">
+                                <div>Thank you! Your submission has been received!</div>
+                            </div>
+                            <div class="w-form-fail">
+                                <div>Oops! Something went wrong while submitting the form.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-details-wrapper">
+                        <div class="contact-info">
+                            <h2 class="contact-info-heading">Contact Information</h2>
+                            <div class="contact-details-list">
+                                <div class="contact-detail-item">
+                                    <div class="contact-icon">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <div class="contact-text">
+                                        <p>akshay.chame@example.com</p>
+                                    </div>
+                                </div>
+                                <div class="contact-detail-item">
+                                    <div class="contact-icon">
+                                        <i class="fas fa-phone"></i>
+                                    </div>
+                                    <div class="contact-text">
+                                        <p>+1 (555) 123-4567</p>
+                                    </div>
+                                </div>
+                                <div class="contact-detail-item">
+                                    <div class="contact-icon">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </div>
+                                    <div class="contact-text">
+                                        <p>San Francisco, CA, USA</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="social-links">
+                                <h3 class="social-heading">Follow Me</h3>
+                                <div class="social-icons">
+                                    <a href="https://github.com/akshayram1" class="social-link"><i
+                                            class="fab fa-github"></i></a>
+                                    <a href="https://www.linkedin.com/in/akshay-chame-b43bb8209/" class="social-link"><i
+                                            class="fab fa-linkedin-in"></i></a>
+                                    <a href="https://x.com/Akshay99099945" class="social-link"><i
+                                            class="fab fa-twitter"></i></a>
+                                    <a href="https://www.instagram.com/akshay_chame/" class="social-link"><i
+                                            class="fab fa-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Adding Featured Projects Section -->
+            <section class="featured-projects-section contact-projects">
+                <h2 class="section-heading with-accent">Featured Projects</h2>
+                <div class="w-dyn-list">
+                    <div class="w-dyn-items project-grid">
+                        <div class="w-dyn-item project-card" data-category="ai">
+                            <div class="project-card-inner">
+                                <div class="project-card-front">
+                                    <div class="project-icon"><i class="fas fa-file-alt"></i></div>
+                                    <h3 class="project-title">PDF Chatbot</h3>
+                                    <p class="project-description">Upload PDFs and chat about their content using
+                                        AI-powered analysis</p>
+                                </div>
+                                <div class="project-card-back">
+                                    <div class="project-tech-stack">
+                                        <span class="tech-tag">Hugging Face</span>
+                                        <span class="tech-tag">LLM</span>
+                                        <span class="tech-tag">NLP</span>
+                                    </div>
+                                    <a href="https://huggingface.co/spaces/Akshayram1/PDF-Chat"
+                                        class="w-button project-button">View Project</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-dyn-item project-card" data-category="ai">
+                            <div class="project-card-inner">
+                                <div class="project-card-front">
+                                    <div class="project-icon"><i class="fas fa-shopping-cart"></i></div>
+                                    <h3 class="project-title">Shopping Helper</h3>
+                                    <p class="project-description">AI-powered assistance for smarter shopping decisions
+                                    </p>
+                                </div>
+                                <div class="project-card-back">
+                                    <div class="project-tech-stack">
+                                        <span class="tech-tag">Hugging Face</span>
+                                        <span class="tech-tag">AI Assistant</span>
+                                        <span class="tech-tag">E-commerce</span>
+                                    </div>
+                                    <a href="https://huggingface.co/spaces/Akshayram1/shopping_helper"
+                                        class="w-button project-button">View Project</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-dyn-item project-card" data-category="ai">
+                            <div class="project-card-inner">
+                                <div class="project-card-front">
+                                    <div class="project-icon"><i class="fas fa-music"></i></div>
+                                    <h3 class="project-title">Mood-Based Music</h3>
+                                    <p class="project-description">Personalized music recommendations based on your
+                                        emotional state</p>
+                                </div>
+                                <div class="project-card-back">
+                                    <div class="project-tech-stack">
+                                        <span class="tech-tag">Sentiment Analysis</span>
+                                        <span class="tech-tag">Recommendation System</span>
+                                        <span class="tech-tag">Hugging Face</span>
+                                    </div>
+                                    <a href="https://huggingface.co/spaces/Akshayram1/personalized_music_app_basedon_your_mood"
+                                        class="w-button project-button">View Project</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="projects-cta">
+                    <a href="projects.html" class="text-link">See all projects <i
+                            class="fas fa-long-arrow-alt-right"></i></a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="w-container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <div class="footer-logo">AC</div>
+                    <p class="footer-text">&copy; 2025 Akshay Chame. All rights reserved.</p>
+                </div>
+                <div class="footer-right">
+                    <div class="social-links-footer">
+                        <a href="https://github.com/akshayram1" class="social-link-footer"><i
+                                class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/akshay-chame-b43bb8209/" class="social-link-footer"><i
+                                class="fab fa-linkedin"></i></a>
+                        <a href="https://x.com/Akshay99099945" class="social-link-footer"><i
+                                class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/akshay_chame/" class="social-link-footer"><i
+                                class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <canvas id="background-canvas"></canvas>
+
+    <div class="loading-screen">
+        <div class="loader">
+            <div class="neural-loader">
+                <span></span><span></span><span></span><span></span>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://unpkg.com/@barba/core"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="src/js/background.js"></script>
+    <script src="src/js/transitions.js"></script>
+    <script src="src/js/utils.js"></script>
+    <script src="src/js/main.js"></script>
+    <script src="src/js/app.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Initialize project cards with animation
+            const projectCards = document.querySelectorAll('.project-card');
+
+            function revealProjects() {
+                projectCards.forEach((card, index) => {
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                    }, index * 150); // Staggered animation
+                });
+            }
+
+            // Trigger animation when page loads
+            setTimeout(revealProjects, 800);
+
+            // Form submission handling
+            const contactForm = document.getElementById('contact-form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    // Here you would normally send the form data to a server
+                    // For demonstration, we'll just show the success message
+                    const formDone = document.querySelector('.w-form-done');
+                    const formFail = document.querySelector('.w-form-fail');
+
+                    formDone.style.display = 'block';
+                    setTimeout(() => {
+                        contactForm.reset();
+                    }, 2000);
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

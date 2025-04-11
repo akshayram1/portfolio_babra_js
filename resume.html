@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume | Akshay Chame</title>
+    <!-- Adding favicon -->
+    <link rel="icon" href="A-removebg-preview.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="A-removebg-preview.ico" type="image/x-icon">
+    <link rel="stylesheet" href="src/scss/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* Resume Page Specific Styles */
+        .resume-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .resume-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 3rem;
+            position: relative;
+            background: rgba(25, 25, 35, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+        }
+
+        .resume-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(65, 184, 255, 0.1) 0%, rgba(65, 184, 255, 0) 70%);
+            z-index: -1;
+            animation: pulse 15s infinite linear;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .resume-header .section-title {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, #41B8FF, #8A5FFF);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 5px 15px rgba(65, 184, 255, 0.3);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info p {
+            position: relative;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .contact-info p:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-info a {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.25rem;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            background: rgba(65, 184, 255, 0.2);
+            border-color: #41B8FF;
+            box-shadow: 0 5px 15px rgba(65, 184, 255, 0.2);
+        }
+
+        .contact-info i {
+            font-size: 1.1rem;
+            color: #41B8FF;
+        }
+
+        .download-button {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1rem 2rem;
+            background: linear-gradient(45deg, #41B8FF, #8A5FFF);
+            border-radius: 50px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(65, 184, 255, 0.3);
+        }
+
+        .download-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(65, 184, 255, 0.4);
+        }
+
+        .download-button i {
+            font-size: 1.2rem;
+        }
+
+        .section-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .section-card {
+            background: rgba(25, 25, 35, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        .section-card h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.8rem;
+            position: relative;
+            color: #fff;
+        }
+
+        .section-card h2:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 3px;
+            width: 60px;
+            background: linear-gradient(to right, #41B8FF, #8A5FFF);
+        }
+
+        .timeline-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+            position: relative;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline-entry {
+            position: relative;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: rgba(35, 35, 45, 0.6);
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .timeline-entry:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-entry:hover {
+            transform: translateX(5px);
+            background: rgba(35, 35, 45, 0.9);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -2.5rem;
+            top: 2rem;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #41B8FF, #8A5FFF);
+            box-shadow: 0 0 0 4px rgba(65, 184, 255, 0.2);
+            z-index: 2;
+        }
+
+        .timeline:before {
+            content: '';
+            position: absolute;
+            left: -0.55rem;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: linear-gradient(to bottom, rgba(65, 184, 255, 0.5), rgba(138, 95, 255, 0.5));
+            z-index: 1;
+        }
+
+        .timeline-date {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(65, 184, 255, 0.1);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            color: #41B8FF;
+            margin-bottom: 0.75rem;
+            font-weight: 500;
+        }
+
+        .timeline-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .timeline-content h4 {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            margin-bottom: 0.75rem;
+            color: #bbb;
+        }
+
+        .tech-used {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .tech-badge {
+            padding: 0.4rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            background: linear-gradient(45deg, rgba(65, 184, 255, 0.2), rgba(138, 95, 255, 0.2));
+            color: #fff;
+            border: 1px solid rgba(65, 184, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .tech-badge:hover {
+            background: linear-gradient(45deg, rgba(65, 184, 255, 0.3), rgba(138, 95, 255, 0.3));
+            transform: translateY(-2px);
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-category {
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-category h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .skill-bar {
+            height: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .skill-progress {
+            height: 100%;
+            border-radius: 5px;
+            background: linear-gradient(to right, #41B8FF, #8A5FFF);
+            position: relative;
+            width: 0;
+            transition: width 1.5s ease-out;
+        }
+
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-name strong {
+            color: #fff;
+        }
+
+        .skill-name span {
+            color: #41B8FF;
+        }
+
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .achievement-card {
+            background: rgba(35, 35, 45, 0.6);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            background: rgba(35, 35, 45, 0.9);
+        }
+
+        .achievement-card h3 {
+            color: #fff;
+            margin-bottom: 0.75rem;
+            font-size: 1.3rem;
+        }
+
+        .achievement-card p {
+            color: #bbb;
+        }
+
+        .publication-card {
+            position: relative;
+            padding: 1.5rem;
+            background: rgba(35, 35, 45, 0.6);
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+            margin-bottom: 1.5rem;
+        }
+
+        .publication-card:hover {
+            transform: translateX(5px);
+            background: rgba(35, 35, 45, 0.9);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .publication-card h3 {
+            color: #fff;
+            margin-bottom: 0.75rem;
+            font-size: 1.3rem;
+        }
+
+        .publication-card p {
+            color: #bbb;
+        }
+
+        .publication-date {
+            display: inline-block;
+            padding: 0.4rem 0.8rem;
+            background: rgba(65, 184, 255, 0.1);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: #41B8FF;
+            margin-bottom: 0.75rem;
+        }
+
+        .publication-venue {
+            display: inline-block;
+            padding: 0.4rem 0.8rem;
+            background: rgba(138, 95, 255, 0.1);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: #8A5FFF;
+            margin-left: 0.5rem;
+        }
+
+        /* Animation for skills when in viewport */
+        .animate-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .animate-in.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .section-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+
+            .achievements-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+
+<body data-barba="wrapper">
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <div class="w-nav navbar">
+        <div class="w-container container">
+            <a href="index.html" class="w-nav-brand">
+                <!-- Replacing text logo with image logo -->
+                <img src="A-removebg-preview.ico" alt="Akshay Chame Logo" class="logo-img">
+            </a>
+            <nav role="navigation" class="w-nav-menu">
+                <ul class="w-list-unstyled">
+                    <li><a href="index.html" class="w-nav-link">Home</a></li>
+                    <li><a href="projects.html" class="w-nav-link">Projects</a></li>
+                    <li><a href="about.html" class="w-nav-link">About</a></li>
+                    <li><a href="resume.html" class="w-nav-link w--current">Resume</a></li>
+                    <li><a href="contact.html" class="w-nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <main data-barba="container" data-barba-namespace="resume" class="main-wrapper">
+        <div class="overlay"></div>
+        <div class="webgl-container webgl-subdued" id="webgl-canvas"></div>
+
+        <div class="resume-container">
+            <div class="resume-header">
+                <h1 class="section-title">Resume</h1>
+                <div class="contact-info">
+                    <p><a href="mailto:akshaychame2@gmail.com"><i class="fas fa-envelope"></i>
+                            akshaychame2@gmail.com</a></p>
+                    <p><a href="tel:9834524009"><i class="fas fa-phone"></i> 9834524009</a></p>
+                    <p><a href="https://www.linkedin.com/in/akshay-chame-b43bb8209/"><i class="fab fa-linkedin"></i>
+                            LinkedIn</a></p>
+                    <p><a href="https://github.com/akshayram1"><i class="fab fa-github"></i> GitHub</a></p>
+                    <p><a href="https://x.com/Akshay99099945"><i class="fab fa-twitter"></i> X (Twitter)</a></p>
+                    <p><a href="https://www.instagram.com/akshay_chame/"><i class="fab fa-instagram"></i> Instagram</a>
+                    </p>
+                    <p><a><i class="fas fa-map-marker-alt"></i> Pune, Maharashtra</a></p>
+                </div>
+                <a href="Akshay-Chame-FlowCV-Resume-20250411.pdf" download class="download-button">
+                    <i class="fas fa-download"></i> Download Resume
+                </a>
+            </div>
+
+            <div class="section-cards">
+                <div class="section-card animate-in">
+                    <h2>Education</h2>
+                    <div class="timeline">
+                        <div class="timeline-entry">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-date">2022 - Present</div>
+                            <div class="timeline-content">
+                                <h3>Bachelor of Technology in Computer Science</h3>
+                                <h4>Vishwakarma Institute Of Technology</h4>
+                                <p><strong>CGPA:</strong> 8.67</p>
+                                <p><strong>Location:</strong> Pune, Maharashtra</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-entry">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-date">2019 - 2022</div>
+                            <div class="timeline-content">
+                                <h3>Diploma In Computer Engineering</h3>
+                                <h4>Puranmal Lahoti Government Polytechnic</h4>
+                                <p><strong>Percentage:</strong> 94.97</p>
+                                <p><strong>Location:</strong> Latur, Maharashtra</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-card animate-in">
+                    <h2>Skills</h2>
+                    <div class="skills-container">
+                        <div class="skill-category">
+                            <h3>Programming Languages</h3>
+                            <div class="skill-item">
+                                <div class="skill-name">
+                                    <strong>Python</strong>
+                                    <span>90%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="90%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">
+                                    <strong>Java</strong>
+                                    <span>80%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="80%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">
+                                    <strong>C/C++</strong>
+                                    <span>75%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="75%"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="skill-category">
+                            <h3>Frameworks</h3>
+                            <div class="skill-item">
+                                <div class="skill-name">
+                                    <strong>Django</strong>
+                                    <span>85%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="85%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">
+                                    <strong>Flask</strong>
+                                    <span>80%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="80%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">
+                                    <strong>Streamlit</strong>
+                                    <span>85%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="85%"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="skill-category">
+                            <h3>AI & Machine Learning</h3>
+                            <div class="skill-item">
+                                <div class="skill-name">
+                                    <strong>NLP (BERT, LSTM)</strong>
+                                    <span>85%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="85%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">
+                                    <strong>PyTorch</strong>
+                                    <span>80%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="80%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">
+                                    <strong>LangChain</strong>
+                                    <span>75%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="75%"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="skill-category">
+                            <h3>Other Technologies</h3>
+                            <div class="skill-item">
+                                <div class="skill-name">
+                                    <strong>Git/GitHub</strong>
+                                    <span>90%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="90%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">
+                                    <strong>Databases (SQL, MongoDB)</strong>
+                                    <span>85%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="85%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">
+                                    <strong>Docker</strong>
+                                    <span>70%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="70%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-card animate-in">
+                <h2>Projects & Experience</h2>
+                <div class="timeline">
+                    <div class="timeline-entry">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2023</div>
+                        <div class="timeline-content">
+                            <h3>AI Enabled Water Well Prediction (Jal Shakti Ministry)</h3>
+                            <div class="tech-used">
+                                <span class="tech-badge">Python</span>
+                                <span class="tech-badge">Flask</span>
+                                <span class="tech-badge">React JS</span>
+                                <span class="tech-badge">Data Science</span>
+                                <span class="tech-badge">KNN</span>
+                                <span class="tech-badge">K-Means</span>
+                            </div>
+                            <ul>
+                                <li>Created a user-friendly web and app system using Python, Flask, and frontend to
+                                    provide AI-driven insights on water well feasibility and groundwater characteristics
+                                    based on CGWB data.</li>
+                                <li>Implemented Data Science techniques like KNN and K-Means clustering for predictive
+                                    analysis and personalized recommendations, integrating user feedback for accuracy.
+                                </li>
+                                <li>Aimed to improve water management by delivering actionable insights on well depth,
+                                    discharge rates, and drilling techniques through an intuitive interface.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-entry">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2023</div>
+                        <div class="timeline-content">
+                            <h3>AI-Powered Resume Matching and Skills Analysis System (Codewits Solutions Pvt. Ltd.)
+                            </h3>
+                            <div class="tech-used">
+                                <span class="tech-badge">Python</span>
+                                <span class="tech-badge">Streamlit</span>
+                                <span class="tech-badge">NLTK</span>
+                                <span class="tech-badge">Gensim</span>
+                                <span class="tech-badge">Doc2Vec</span>
+                                <span class="tech-badge">BERT</span>
+                                <span class="tech-badge">NLP</span>
+                            </div>
+                            <ul>
+                                <li>Developed a Python-based Resume Matching Tool using Finetuned BERT embeddings,
+                                    improving job match accuracy by 15%. Implemented a user-friendly interface with
+                                    Streamlit for interactive resume uploads and skill visualizations.</li>
+                                <li>Integrated Streamlit for a user-friendly web interface, enabling PDF uploads,
+                                    sorting results by similarity scores, CGPA, and skill proficiency, and visualizing
+                                    skill distributions with Matplotlib and Seaborn.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-entry">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2023</div>
+                        <div class="timeline-content">
+                            <h3>PDF-based Question Answering System using LLM and Langchain</h3>
+                            <div class="tech-used">
+                                <span class="tech-badge">Streamlit</span>
+                                <span class="tech-badge">Gradio</span>
+                                <span class="tech-badge">Python</span>
+                                <span class="tech-badge">Langchain</span>
+                                <span class="tech-badge">RAG</span>
+                                <span class="tech-badge">LLM</span>
+                            </div>
+                            <ul>
+                                <li>Developed a PDF-based question-answering tool using Langchain and advanced
+                                    transformer models (Gemini, Mistral) to provide accurate responses from uploaded
+                                    PDFs.</li>
+                                <li>Integrated a user-friendly interface with Streamlit and Gradio for efficient query
+                                    handling.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-entry">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2022</div>
+                        <div class="timeline-content">
+                            <h3>Deepfake Detection for Videos using Neural Network</h3>
+                            <div class="tech-used">
+                                <span class="tech-badge">LSTM</span>
+                                <span class="tech-badge">ResNext CNN</span>
+                                <span class="tech-badge">PyTorch</span>
+                                <span class="tech-badge">CUDA</span>
+                                <span class="tech-badge">Django</span>
+                            </div>
+                            <ul>
+                                <li>Built a real-time deepfake detection system using LSTM and ResNext CNN models,
+                                    achieving 30% faster detection with CUDA GPU acceleration.</li>
+                                <li>Integrated the system into a Django web application for user-uploaded video
+                                    verification.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-entry">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2022</div>
+                        <div class="timeline-content">
+                            <h3>Location Tracker using A9g board for Dementia Patient</h3>
+                            <div class="tech-used">
+                                <span class="tech-badge">A9G Board</span>
+                                <span class="tech-badge">GPS</span>
+                                <span class="tech-badge">GSM</span>
+                                <span class="tech-badge">Embedded Systems</span>
+                            </div>
+                            <ul>
+                                <li>Developed a GPS-based location tracker with SOS and GSM communication using the A9G
+                                    board for dementia patient safety.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-cards">
+                <div class="section-card animate-in">
+                    <h2>Achievements</h2>
+                    <div class="achievements-grid">
+                        <div class="achievement-card">
+                            <h3>Smart India Hackathon 2023 Winner</h3>
+                            <p>'AI Enabled Water Well Prediction' Project</p>
+                            <p><strong>Role:</strong> Team Leader</p>
+                        </div>
+                        <div class="achievement-card">
+                            <h3>Bronze medal at National Level</h3>
+                            <p>Foundation AI - VILT from NASSCOM</p>
+                            <p><strong>Year:</strong> 2023</p>
+                        </div>
+                        <div class="achievement-card">
+                            <h3>Oracle Cloud Infrastructure</h3>
+                            <p>Gen AI Certified 2024</p>
+                        </div>
+                        <div class="achievement-card">
+                            <h3>IBM Data Science</h3>
+                            <p>Professional Certified</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-card animate-in">
+                    <h2>Publications</h2>
+                    <div class="publication-card">
+                        <span class="publication-date">September 2023</span>
+                        <span class="publication-venue">IEEE</span>
+                        <h3>Tourism Promotion Website Using Three.js</h3>
+                        <p>An exploration of using 3D web technologies for promoting tourism destinations and creating
+                            immersive virtual experiences.</p>
+                    </div>
+                    <div class="publication-card">
+                        <span class="publication-date">September 2024</span>
+                        <h3>Recent Trends In Programming Languages</h3>
+                        <p>Analysis of emerging programming language paradigms and their applications in modern software
+                            development.</p>
+                    </div>
+                    <div class="publication-card">
+                        <span class="publication-date">October 2023</span>
+                        <span class="publication-venue">I-SMAC</span>
+                        <h3>A Hybrid approach for Deepfake Detection using CNN-RNN</h3>
+                        <p>A9G-based Dementia GPS Tracker, International Conference on I-SMAC (IoT in Social, Mobile,
+                            Analytics and Cloud)</p>
+                    </div>
+                    <div class="publication-card">
+                        <span class="publication-date">April 2022</span>
+                        <span class="publication-venue">IRJET</span>
+                        <h3>Controlling Electrical Appliances Using IoT and AR</h3>
+                        <p>International Research Journal of Engineering and Technology (IRJET)</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-card animate-in">
+                <h2>Extra Curricular Activities</h2>
+                <div class="timeline">
+                    <div class="timeline-entry">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Feb 2024 - present</div>
+                        <div class="timeline-content">
+                            <h3>Springer Nature Group</h3>
+                        </div>
+                    </div>
+                    <div class="timeline-entry">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Apr 2023 - present</div>
+                        <div class="timeline-content">
+                            <h3>Microsoft Learn Student Club</h3>
+                            <p>Coordinator in IOT</p>
+                        </div>
+                    </div>
+                    <div class="timeline-entry">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Apr 2023 - present</div>
+                        <div class="timeline-content">
+                            <h3>Game Dev + Club</h3>
+                            <p>Game Developer (Unity 3D)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="w-container">
+            <p>&copy; 2025 Akshay Chame. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div class="loading-screen">
+        <div class="loader">
+            <div class="neural-loader">
+                <span></span><span></span><span></span><span></span>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://unpkg.com/@barba/core"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="src/js/background.js"></script>
+    <script src="src/js/transitions.js"></script>
+    <script src="src/js/utils.js"></script>
+    <script src="src/js/main.js"></script>
+    <script src="src/js/app.js"></script>
+    <script>
+        // Animate skill bars when they come into view
+        document.addEventListener('DOMContentLoaded', function () {
+            // Animate skill bars
+            function animateSkills() {
+                const skillBars = document.querySelectorAll('.skill-progress');
+                skillBars.forEach(bar => {
+                    const width = bar.getAttribute('data-width');
+                    bar.style.width = width;
+                });
+            }
+
+            // Animate elements when they enter viewport
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                        if (entry.target.querySelector('.skill-progress')) {
+                            setTimeout(() => {
+                                animateSkills();
+                            }, 300);
+                        }
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            document.querySelectorAll('.animate-in').forEach(item => {
+                observer.observe(item);
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Akshay Chame</title>
+    <!-- Adding favicon -->
+    <link rel="icon" href="A-removebg-preview.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="A-removebg-preview.ico" type="image/x-icon">
+    <link rel="stylesheet" href="src/scss/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Animate.css for animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- Webflow scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/webflow/1.8.20/webflow.min.js"></script>
+</head>
+
+<body data-barba="wrapper" class="body">
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <div class="w-nav navbar">
+        <div class="w-container container">
+            <a href="index.html" class="w-nav-brand">
+                <!-- Replacing text logo with image logo -->
+                <img src="A-removebg-preview.ico" alt="Akshay Chame Logo" class="logo-img">
+            </a>
+            <nav role="navigation" class="w-nav-menu">
+                <ul class="w-list-unstyled">
+                    <li><a href="index.html" class="w-nav-link">Home</a></li>
+                    <li><a href="projects.html" class="w-nav-link w--current">Projects</a></li>
+                    <li><a href="about.html" class="w-nav-link">About</a></li>
+                    <li><a href="resume.html" class="w-nav-link">Resume</a></li>
+                    <li><a href="contact.html" class="w-nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <main data-barba="container" data-barba-namespace="project" class="main-wrapper">
+        <div class="overlay"></div>
+        <div class="webgl-container webgl-subdued" id="webgl-canvas"></div>
+
+        <div class="w-container page-content">
+            <section class="projects-header">
+                <h1 class="projects-heading">My Projects</h1>
+                <p class="project-subheading">Explore my portfolio of projects showcasing my skills and expertise in AI,
+                    web development, mobile apps, and more.</p>
+
+                <div class="filter-container">
+                    <button class="filter-btn active" data-filter="all">All Projects</button>
+                    <button class="filter-btn" data-filter="ai">AI & ML</button>
+                    <button class="filter-btn" data-filter="mobile">Mobile</button>
+                    <button class="filter-btn" data-filter="web">Web</button>
+                </div>
+            </section>
+
+            <section class="projects-grid-section">
+                <div class="w-dyn-list">
+                    <div class="w-dyn-items project-collection-list">
+                        <div id="water-well-prediction" class="w-dyn-item project-item" data-category="ai">
+                            <div class="project-image-wrap">
+                                <img src="https://images.unsplash.com/photo-1600880292630-ee8a00403024?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaH90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                                    alt="AI Enabled Water Well Prediction" class="project-image">
+                            </div>
+                            <div class="project-content">
+                                <h2 class="project-title">AI Enabled Water Well Prediction</h2>
+                                <div class="project-tags">
+                                    <span class="project-tag">Python</span>
+                                    <span class="project-tag">Flask</span>
+                                    <span class="project-tag">React</span>
+                                    <span class="project-tag">KNN</span>
+                                </div>
+                                <div class="project-rich-text w-richtext">
+                                    <p>Created a system using Python, Flask, and frontend technologies to provide
+                                        AI-driven insights on water well feasibility based on CGWB data.</p>
+                                </div>
+                                <a href="https://github.com/akshayram1/water-well-prediction"
+                                    class="project-link w-button">View Project <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+
+                        <div id="resume-matching" class="w-dyn-item project-item" data-category="ai">
+                            <div class="project-image-wrap">
+                                <img src="https://images.unsplash.com/photo-1586281380117-5a60ae2050cc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaH90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                                    alt="Resume Matching System" class="project-image">
+                            </div>
+                            <div class="project-content">
+                                <h2 class="project-title">AI-Powered Resume Matching System</h2>
+                                <div class="project-tags">
+                                    <span class="project-tag">Python</span>
+                                    <span class="project-tag">NLP</span>
+                                    <span class="project-tag">BERT</span>
+                                    <span class="project-tag">Streamlit</span>
+                                </div>
+                                <div class="project-rich-text w-richtext">
+                                    <p>Developed a Python-based Resume Matching Tool using Finetuned BERT embeddings,
+                                        improving job match accuracy by 15%.</p>
+                                </div>
+                                <a href="https://github.com/akshayram1/resume-matching"
+                                    class="project-link w-button">View Project <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+
+                        <div id="pdf-qa-system" class="w-dyn-item project-item" data-category="ai">
+                            <div class="project-image-wrap">
+                                <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaH90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                                    alt="PDF-based Question Answering System" class="project-image">
+                            </div>
+                            <div class="project-content">
+                                <h2 class="project-title">PDF-based Question Answering System</h2>
+                                <div class="project-tags">
+                                    <span class="project-tag">Streamlit</span>
+                                    <span class="project-tag">Gradio</span>
+                                    <span class="project-tag">LangChain</span>
+                                    <span class="project-tag">RAG</span>
+                                </div>
+                                <div class="project-rich-text w-richtext">
+                                    <p>Developed a PDF-based question-answering tool using Langchain and advanced
+                                        transformer models to provide accurate responses from uploaded PDFs.</p>
+                                </div>
+                                <a href="https://github.com/akshayram1/pdf-qa-system" class="project-link w-button">View
+                                    Project <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+
+                        <div id="deepfake-detection" class="w-dyn-item project-item" data-category="ai">
+                            <div class="project-image-wrap">
+                                <img src="https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaH90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                                    alt="Deepfake Detection for Videos" class="project-image">
+                            </div>
+                            <div class="project-content">
+                                <h2 class="project-title">Deepfake Detection for Videos</h2>
+                                <div class="project-tags">
+                                    <span class="project-tag">PyTorch</span>
+                                    <span class="project-tag">CUDA</span>
+                                    <span class="project-tag">Django</span>
+                                </div>
+                                <div class="project-rich-text w-richtext">
+                                    <p>Built a real-time deepfake detection system using LSTM and ResNext CNN models,
+                                        achieving 30% faster detection with CUDA GPU acceleration.</p>
+                                    <p>Integrated the system into a Django web application for user-uploaded video
+                                        verification.</p>
+                                </div>
+                                <a href="https://github.com/akshayram1/deepfake-detection"
+                                    class="project-link w-button">View Project <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+
+                        <div id="gps-dementia-tracker" class="w-dyn-item project-item" data-category="mobile">
+                            <div class="project-image-wrap">
+                                <img src="https://images.unsplash.com/photo-1526948531399-320e7e40f0ca?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaH90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                                    alt="GPS Tracker for Dementia Patients" class="project-image">
+                            </div>
+                            <div class="project-content">
+                                <h2 class="project-title">Location Tracker for Dementia Patients</h2>
+                                <div class="project-tags">
+                                    <span class="project-tag">A9G Board</span>
+                                    <span class="project-tag">GPS</span>
+                                    <span class="project-tag">GSM</span>
+                                    <span class="project-tag">Embedded Systems</span>
+                                </div>
+                                <div class="project-rich-text w-richtext">
+                                    <p>Developed a GPS-based location tracker with SOS and GSM communication using the
+                                        A9G board for dementia patient safety.</p>
+                                    <p>Designed with safety and reliability as primary concerns, with extended battery
+                                        life.</p>
+                                </div>
+                                <a href="https://github.com/akshayram1/gps-dementia-tracker"
+                                    class="project-link w-button">View Project <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+
+                        <div id="iot-ar-appliance" class="w-dyn-item project-item" data-category="mobile">
+                            <div class="project-image-wrap">
+                                <img src="https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaH90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                                    alt="IoT and AR App for Controlling Appliances" class="project-image">
+                            </div>
+                            <div class="project-content">
+                                <h2 class="project-title">Controlling Electrical Appliances Using IoT and AR</h2>
+                                <div class="project-tags">
+                                    <span class="project-tag">IoT</span>
+                                    <span class="project-tag">Augmented Reality</span>
+                                    <span class="project-tag">Android</span>
+                                    <span class="project-tag">iOS</span>
+                                </div>
+                                <div class="project-rich-text w-richtext">
+                                    <p>Developed an AR and IoT-based app for touchless appliance control with a
+                                        user-friendly interface for easy monitoring, enhancing safety during COVID-19.
+                                    </p>
+                                    <p>Combined cutting-edge AR technology with reliable IoT connectivity for seamless
+                                        home automation.</p>
+                                </div>
+                                <a href="https://github.com/akshayram1/iot-ar-control"
+                                    class="project-link w-button">View Project <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+
+                        <!-- Hugging Face Spaces Projects -->
+                        <div id="pdf-chatbot" class="w-dyn-item project-item" data-category="ai">
+                            <div class="project-image-wrap">
+                                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaH90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                                    alt="PDF Chatbot" class="project-image">
+                            </div>
+                            <div class="project-content">
+                                <h2 class="project-title">PDF Chatbot</h2>
+                                <div class="project-tags">
+                                    <span class="project-tag">Hugging Face</span>
+                                    <span class="project-tag">LLM</span>
+                                    <span class="project-tag">NLP</span>
+                                    <span class="project-tag">Document AI</span>
+                                    <span class="project-tag">RAG</span>
+                                </div>
+                                <div class="project-rich-text w-richtext">
+                                    <p>Created a PDF Chatbot that allows users to upload PDFs and interact with their
+                                        content using AI-powered analysis.</p>
+                                    <p>The system uses advanced natural language processing and RAG (Retrieval-Augmented
+                                        Generation) to provide contextually relevant answers based on the PDF content.
+                                    </p>
+                                </div>
+                                <a href="https://huggingface.co/spaces/Akshayram1/PDF-Chat"
+                                    class="project-link w-button">View Project <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+
+                        <div id="markdown-converter" class="w-dyn-item project-item" data-category="ai">
+                            <div class="project-image-wrap">
+                                <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaH90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                                    alt="Markdown Converter" class="project-image">
+                            </div>
+                            <div class="project-content">
+                                <h2 class="project-title">Markdown Converter</h2>
+                                <div class="project-tags">
+                                    <span class="project-tag">NLP</span>
+                                    <span class="project-tag">Text Processing</span>
+                                    <span class="project-tag">Hugging Face</span>
+                                    <span class="project-tag">Markdown</span>
+                                </div>
+                                <div class="project-rich-text w-richtext">
+                                    <p>Built a tool to instantly convert markdown text to normal readable text,
+                                        improving readability and presentation.</p>
+                                    <p>This utility streamlines the process of transforming technical documentation into
+                                        user-friendly content.</p>
+                                </div>
+                                <a href="https://huggingface.co/spaces/Akshayram1/markdown_to_normal_text"
+                                    class="project-link w-button">View Project <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+
+                        <div id="portfolio-website" class="w-dyn-item project-item" data-category="web">
+                            <div class="project-image-wrap">
+                                <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                                    alt="Portfolio Website" class="project-image">
+                            </div>
+                            <div class="project-content">
+                                <h2 class="project-title">Portfolio Website</h2>
+                                <div class="project-tags">
+                                    <span class="project-tag">HTML5</span>
+                                    <span class="project-tag">CSS3</span>
+                                    <span class="project-tag">JavaScript</span>
+                                    <span class="project-tag">Three.js</span>
+                                    <span class="project-tag">GSAP</span>
+                                </div>
+                                <div class="project-rich-text w-richtext">
+                                    <p>Created an interactive portfolio website using modern web technologies including
+                                        Three.js for 3D effects and GSAP for smooth animations.</p>
+                                    <p>Features responsive design, dark/light mode, and interactive elements for an
+                                        engaging user experience.</p>
+                                </div>
+                                <a href="https://github.com/akshayram1/portfolio-website"
+                                    class="project-link w-button">View Project <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="projects-pagination">
+                    <div class="pagination-arrow disabled"><i class="fas fa-chevron-left"></i></div>
+                    <div class="pagination-item active">1</div>
+                    <div class="pagination-item">2</div>
+                    <div class="pagination-arrow"><i class="fas fa-chevron-right"></i></div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="w-container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <div class="footer-logo">AC</div>
+                    <p class="footer-text">&copy; 2025 Akshay Chame. All rights reserved.</p>
+                </div>
+                <div class="footer-right">
+                    <div class="social-links-footer">
+                        <a href="https://github.com/akshayram1" class="social-link-footer"><i
+                                class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/akshay-chame-b43bb8209/" class="social-link-footer"><i
+                                class="fab fa-linkedin"></i></a>
+                        <a href="https://x.com/Akshay99099945" class="social-link-footer"><i
+                                class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/akshay_chame/" class="social-link-footer"><i
+                                class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <canvas id="background-canvas"></canvas>
+
+    <div class="loading-screen">
+        <div class="loader">
+            <div class="neural-loader">
+                <span></span><span></span><span></span><span></span>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://unpkg.com/@barba/core"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="src/js/background.js"></script>
+    <script src="src/js/transitions.js"></script>
+    <script src="src/js/utils.js"></script>
+    <script src="src/js/main.js"></script>
+    <script src="src/js/app.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Staggered animation for project items
+            const projectItems = document.querySelectorAll('.project-item');
+            projectItems.forEach((item, index) => {
+                item.style.setProperty('--item-index', index);
+            });
+
+            // Project filtering functionality
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    // Update active button
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+
+                    const filter = this.getAttribute('data-filter');
+                    console.log("Selected filter:", filter);
+
+                    // Filter projects
+                    projectItems.forEach(item => {
+                        const category = item.getAttribute('data-category');
+                        console.log("Project category:", category);
+
+                        if (filter === 'all' || filter === category) {
+                            // Show the item with animation
+                            item.style.display = 'flex';
+                            setTimeout(() => {
+                                item.style.opacity = '1';
+                                item.style.transform = 'translateY(0)';
+                            }, 10);
+                        } else {
+                            // Hide the item
+                            item.style.opacity = '0';
+                            item.style.transform = 'translateY(20px)';
+                            setTimeout(() => {
+                                item.style.display = 'none';
+                            }, 300); // Match this with your CSS transition duration
+                        }
+                    });
+                });
+            });
+
+            // Initialize filter (show all projects by default)
+            document.querySelector('.filter-btn[data-filter="all"]').click();
+
+            // Pagination functionality (for demonstration - not fully implemented)
+            const paginationItems = document.querySelectorAll('.pagination-item');
+            paginationItems.forEach(item => {
+                item.addEventListener('click', function () {
+                    paginationItems.forEach(pItem => pItem.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

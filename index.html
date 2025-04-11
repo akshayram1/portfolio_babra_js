@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Akshay Chame</title>
+    <!-- Adding favicon -->
+    <link rel="icon" href="A-removebg-preview.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="A-removebg-preview.ico" type="image/x-icon">
+    <link rel="stylesheet" href="src/scss/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Animate.css for animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- Webflow scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/webflow/1.8.20/webflow.min.js"></script>
+    <!-- Typed.js for text animation -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+</head>
+
+<body data-barba="wrapper" class="body">
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <div class="w-nav navbar">
+        <div class="w-container container">
+            <a href="index.html" class="w-nav-brand">
+                <!-- Replacing text logo with image logo -->
+                <img src="A-removebg-preview.ico" alt="Akshay Chame Logo" class="logo-img">
+            </a>
+            <nav role="navigation" class="w-nav-menu">
+                <ul class="w-list-unstyled">
+                    <li><a href="index.html" class="w-nav-link w--current">Home</a></li>
+                    <li><a href="projects.html" class="w-nav-link">Projects</a></li>
+                    <li><a href="about.html" class="w-nav-link">About</a></li>
+                    <li><a href="resume.html" class="w-nav-link">Resume</a></li>
+                    <li><a href="contact.html" class="w-nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <main data-barba="container" data-barba-namespace="home" class="main-wrapper">
+        <div class="overlay"></div>
+        <div class="webgl-container" id="webgl-canvas"></div>
+
+        <div class="w-container page-content">
+            <section class="hero-section">
+                <div class="hero-content animate__animated animate__fadeIn">
+                    <div class="hero-badge">Welcome to my portfolio</div>
+                    <h1 class="hero-heading glitch" data-text="Akshay Chame">Akshay Chame</h1>
+                    <h2 class="hero-subheading">Computer Engineer</h2>
+                    <div class="hero-typed-wrapper">I <span id="typed-strings"></span></div>
+                    <p class="hero-paragraph">Building innovative AI applications with modern technologies</p>
+                    <div class="hero-cta">
+                        <a href="projects.html" class="primary-button">View Projects <i
+                                class="fas fa-arrow-right"></i></a>
+                        <a href="contact.html" class="secondary-button">Get in Touch</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="featured-projects-section">
+                <h2 class="section-heading with-accent">Featured Projects</h2>
+                <div class="w-dyn-list">
+                    <div class="w-dyn-items project-grid">
+                        <div class="w-dyn-item project-card" data-category="ai">
+                            <div class="project-card-inner">
+                                <div class="project-card-front">
+                                    <div class="project-icon"><i class="fas fa-file-alt"></i></div>
+                                    <h3 class="project-title">PDF Chatbot</h3>
+                                    <p class="project-description">Upload PDFs and chat about their content using
+                                        AI-powered analysis</p>
+                                </div>
+                                <div class="project-card-back">
+                                    <div class="project-tech-stack">
+                                        <span class="tech-tag">Hugging Face</span>
+                                        <span class="tech-tag">LLM</span>
+                                        <span class="tech-tag">NLP</span>
+                                    </div>
+                                    <a href="https://huggingface.co/spaces/Akshayram1/PDF-Chat"
+                                        class="w-button project-button">View Project</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="w-dyn-item project-card" data-category="ai">
+                            <div class="project-card-inner">
+                                <div class="project-card-front">
+                                    <div class="project-icon"><i class="fas fa-id-card"></i></div>
+                                    <h3 class="project-title">ID Document Verification</h3>
+                                    <p class="project-description">Recognito ID Document OCR and Liveness Detection
+                                        system</p>
+                                </div>
+                                <div class="project-card-back">
+                                    <div class="project-tech-stack">
+                                        <span class="tech-tag">Computer Vision</span>
+                                        <span class="tech-tag">OCR</span>
+                                        <span class="tech-tag">Hugging Face</span>
+                                    </div>
+                                    <a href="https://huggingface.co/spaces/Akshayram1/id-document-verification"
+                                        class="w-button project-button">View Project</a>
+                                </div>
+                            </div>
+                        </div> -->
+                        <!-- <div class="w-dyn-item project-card" data-category="ai">
+                            <div class="project-card-inner">
+                                <div class="project-card-front">
+                                    <div class="project-icon"><i class="fas fa-file-code"></i></div>
+                                    <h3 class="project-title">Markdown Converter</h3>
+                                    <p class="project-description">Convert markdown text to normal readable text
+                                        instantly</p>
+                                </div>
+                                <div class="project-card-back">
+                                    <div class="project-tech-stack">
+                                        <span class="tech-tag">NLP</span>
+                                        <span class="tech-tag">Text Processing</span>
+                                        <span class="tech-tag">Hugging Face</span>
+                                    </div>
+                                    <a href="https://huggingface.co/spaces/Akshayram1/markdown_to_normal_text"
+                                        class="w-button project-button">View Project</a>
+                                </div>
+                            </div>
+                        </div> -->
+                        <div class="w-dyn-item project-card" data-category="ai">
+                            <div class="project-card-inner">
+                                <div class="project-card-front">
+                                    <div class="project-icon"><i class="fas fa-shopping-cart"></i></div>
+                                    <h3 class="project-title">Shopping Helper</h3>
+                                    <p class="project-description">AI-powered assistance for smarter shopping decisions
+                                    </p>
+                                </div>
+                                <div class="project-card-back">
+                                    <div class="project-tech-stack">
+                                        <span class="tech-tag">Hugging Face</span>
+                                        <span class="tech-tag">AI Assistant</span>
+                                        <span class="tech-tag">E-commerce</span>
+                                    </div>
+                                    <a href="https://huggingface.co/spaces/Akshayram1/shopping_helper"
+                                        class="w-button project-button">View Project</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-dyn-item project-card" data-category="ai">
+                            <div class="project-card-inner">
+                                <div class="project-card-front">
+                                    <div class="project-icon"><i class="fas fa-music"></i></div>
+                                    <h3 class="project-title">Mood-Based Music</h3>
+                                    <p class="project-description">Personalized music recommendations based on your
+                                        emotional state</p>
+                                </div>
+                                <div class="project-card-back">
+                                    <div class="project-tech-stack">
+                                        <span class="tech-tag">Sentiment Analysis</span>
+                                        <span class="tech-tag">Recommendation System</span>
+                                        <span class="tech-tag">Hugging Face</span>
+                                    </div>
+                                    <a href="https://huggingface.co/spaces/Akshayram1/personalized_music_app_basedon_your_mood"
+                                        class="w-button project-button">View Project</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="w-dyn-item project-card" data-category="api">
+                            <div class="project-card-inner">
+                                <div class="project-card-front">
+                                    <div class="project-icon"><i class="fas fa-cogs"></i></div>
+                                    <h3 class="project-title">API Testing Tool</h3>
+                                    <p class="project-description">Test and validate API endpoints with this interactive
+                                        tool</p>
+                                </div>
+                                <div class="project-card-back">
+                                    <div class="project-tech-stack">
+                                        <span class="tech-tag">API</span>
+                                        <span class="tech-tag">Testing</span>
+                                        <span class="tech-tag">Development</span>
+                                    </div>
+                                    <a href="https://huggingface.co/spaces/Akshayram1/api_test"
+                                        class="w-button project-button">View Project</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="projects-cta"> -->
+                        <a href="projects.html" class="text-link">See all projects <i
+                                class="fas fa-long-arrow-alt-right"></i></a>
+                    </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="w-container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <div class="footer-logo">AC</div>
+                    <p class="footer-text">&copy; 2025 Akshay Chame. All rights reserved.</p>
+                </div>
+                <div class="footer-right">
+                    <div class="social-links-footer">
+                        <a href="https://github.com/akshayram1" class="social-link-footer"><i
+                                class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/akshay-chame-b43bb8209/" class="social-link-footer"><i
+                                class="fab fa-linkedin"></i></a>
+                        <a href="https://x.com/Akshay99099945" class="social-link-footer"><i
+                                class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/akshay_chame/" class="social-link-footer"><i
+                                class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <canvas id="background-canvas"></canvas>
+
+    <div class="loading-screen">
+        <div class="loader">
+            <div class="neural-loader">
+                <span></span><span></span><span></span><span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="terminal">
+        <div class="terminal-header">
+            <div class="terminal-buttons">
+                <span class="terminal-btn close"></span>
+                <span class="terminal-btn minimize"></span>
+                <span class="terminal-btn maximize"></span>
+            </div>
+            <div class="terminal-title">AI Inference Console</div>
+        </div>
+        <div class="terminal-body">
+            <div class="terminal-content">
+                <div class="line">$ <span class="command">initializing AI systems</span></div>
+                <div class="line">$ <span class="response">Neural networks loaded...</span></div>
+                <div class="line">$ <span class="response">Model inference ready...</span></div>
+                <div class="line">$ <span class="prompt blink">_</span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load scripts in correct order -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://unpkg.com/@barba/core"></script>
+
+    <!-- Load our scripts in the correct order -->
+    <script src="src/js/utils.js"></script>
+    <script src="src/js/background.js"></script>
+    <script src="src/js/transitions.js"></script>
+    <script src="src/js/main.js"></script>
+    <script src="src/js/app.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Initialize TypedJS
+            var typed = new Typed('#typed-strings', {
+                strings: [
+                    'build responsive web applications',
+                    'create elegant user experiences',
+                    'solve complex problems',
+                    'turn ideas into reality',
+                    'optimize for performance'
+                ],
+                typeSpeed: 50,
+                backSpeed: 30,
+                backDelay: 1500,
+                startDelay: 500,
+                loop: true,
+                showCursor: true,
+                cursorChar: '|'
+            });
+
+            // Add scroll reveal effect for the project cards
+            const projectCards = document.querySelectorAll('.project-card');
+
+            function checkScroll() {
+                projectCards.forEach(card => {
+                    const cardTop = card.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+
+                    if (cardTop < windowHeight - 100) {
+                        card.classList.add('animate__animated', 'animate__fadeInUp');
+                        card.style.opacity = '1';
+                    }
+                });
+            }
+
+            // Initial check on load
+            checkScroll();
+
+            // Check on scroll
+            window.addEventListener('scroll', checkScroll);
+        });
+    </script>
+</body>
+
+</html>
