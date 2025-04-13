@@ -472,7 +472,7 @@ p,
     transform: translateY(-3px);
 }
 
-/* Loading screen */
+/* Fix to ensure loading screen is visible during transitions */
 .loading-screen {
     position: fixed;
     top: 0;
@@ -485,8 +485,7 @@ p,
     align-items: center;
     z-index: 9999;
     opacity: 1;
-    visibility: visible;
-    transition: opacity 0.5s ease, visibility 0.5s ease;
+    transition: opacity 0.5s ease;
 }
 
 .loading-screen.hidden {
@@ -1486,7 +1485,7 @@ p,
 }
 
 .contact-projects .project-card {
-    opacity: 0;
+    opacity: 1 !important;
     transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
@@ -1502,6 +1501,54 @@ p,
     text-align: center;
     opacity: 0;
     animation: fadeIn 1s ease-out 0.5s forwards;
+}
+
+/* Critical style fixes for About and Resume pages */
+.about-content .project-card {
+    opacity: 1 !important;
+    transform: none !important;
+    perspective: none !important;
+    visibility: visible !important;
+}
+
+.animate-in {
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Force animate-in elements to be visible when they have the animate class */
+.animate-in.animate {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+/* Force fade-in elements to be visible when they have the active class */
+.fade-in.active {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+/* Force skill bars to animate */
+.skill-progress {
+    transition: width 1.5s ease-out !important;
+}
+
+/* Critical style fixes for all pages to ensure first-click loading */
+[data-barba="container"] {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Force project cards to be visible on all pages */
+.project-card {
+    opacity: 1 !important;
+    transition: transform 0.3s ease !important;
+}
+
+/* Fix for immediately showing content after page load */
+.main-wrapper {
+    opacity: 1 !important;
+    visibility: visible !important;
 }
 
 /* Media queries */

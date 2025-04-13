@@ -698,6 +698,30 @@
                 }, 200);
             }
         });
+
+        // Immediate style application for about page
+        (function () {
+            // Force project cards to be visible immediately
+            const projectCards = document.querySelectorAll('.about-content .project-card');
+            if (projectCards) {
+                projectCards.forEach(card => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'none';
+                    card.style.perspective = 'none';
+                    card.style.visibility = 'visible';
+                });
+            }
+
+            // Ensure fade-in elements become visible
+            const fadeElements = document.querySelectorAll('.fade-in');
+            if (fadeElements) {
+                setTimeout(() => {
+                    fadeElements.forEach((el, index) => {
+                        el.classList.add('active');
+                    }, 50);
+                });
+            }
+        })();
     </script>
 </body>
 

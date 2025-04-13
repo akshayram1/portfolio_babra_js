@@ -3,6 +3,9 @@ window.updatePageContent = function () {
     // This function will be called after each page transition
     updateActiveNavItem();
     initWebflow();
+    
+    // Apply immediate style fixes for all pages
+    fixPageStyles();
 
     // Scroll to top on page change
     window.scrollTo(0, 0);
@@ -17,7 +20,78 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize other app functionality
     initApp();
+    
+    // Add click handler to navigation links to ensure proper navigation
+    enhanceNavigation();
 });
+
+// Ensure navigation items work properly on first click
+function enhanceNavigation() {
+    const navLinks = document.querySelectorAll('.w-nav-link');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            // Pre-load critical styles for the target page
+            const href = this.getAttribute('href');
+            if (href) {
+                const pageName = href.replace('.html', '').replace('/', '');
+                if (pageName === 'about' || pageName === 'resume') {
+                    // Mark that we're navigating to this page
+                    sessionStorage.setItem('navigatingTo', pageName);
+                    
+                    // Force immediate focus on this link
+                    link.setAttribute('tabindex', '1');
+                    link.focus();
+                }
+            }
+        });
+    });
+}
+
+// Apply immediate style fixes based on current page
+function fixPageStyles() {
+    const currentPath = window.location.pathname;
+    const pageName = currentPath.split('/').pop().replace('.html', '');
+    
+    if (pageName === 'about' || currentPath.endsWith('/about')) {
+        // Force immediate display of project cards
+        const projectCards = document.querySelectorAll('.about-content .project-card');
+        if (projectCards) {
+            projectCards.forEach(card => {
+                card.style.opacity = '1';
+                card.style.transform = 'none';
+                card.style.visibility = 'visible';
+            });
+        }
+        
+        // Force fade-in elements to be active
+        const fadeElements = document.querySelectorAll('.fade-in');
+        if (fadeElements) {
+            fadeElements.forEach(el => {
+                el.classList.add('active');
+            });
+        }
+    } 
+    else if (pageName === 'resume' || currentPath.endsWith('/resume')) {
+        // Force skill bars to be visible
+        setTimeout(() => {
+            const skillBars = document.querySelectorAll('.skill-progress');
+            if (skillBars) {
+                skillBars.forEach(bar => {
+                    const width = bar.getAttribute('data-width');
+                    bar.style.width = width;
+                });
+            }
+            
+            // Force animate-in elements to be animated
+            const animateElements = document.querySelectorAll('.animate-in');
+            if (animateElements) {
+                animateElements.forEach(el => {
+                    el.classList.add('animate');
+                });
+            }
+        }, 50);
+    }
+}
 
 function hideLoadingScreen() {
     // Hide the loading screen with a fade-out animation

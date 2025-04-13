@@ -899,6 +899,29 @@
             });
         });
     </script>
+    <script>
+        // Immediate style application for resume page
+        (function() {
+            // Apply skill bar widths immediately
+            setTimeout(function() {
+                const skillBars = document.querySelectorAll('.skill-progress');
+                if (skillBars) {
+                    skillBars.forEach(bar => {
+                        const width = bar.getAttribute('data-width');
+                        bar.style.width = width;
+                    });
+                }
+                
+                // Ensure animate-in elements become visible
+                const animateElements = document.querySelectorAll('.animate-in');
+                if (animateElements) {
+                    animateElements.forEach(el => {
+                        el.classList.add('animate');
+                    });
+                }
+            }, 50);
+        })();
+    </script>
 </body>
 
 </html>

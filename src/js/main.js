@@ -18,6 +18,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Ensure CSS is properly applied
     ensureCssIsApplied();
+
+    // Fix navigation links to prevent the need for double-clicking
+    fixNavigationLinks();
+
+    console.log('Main.js loaded');
 });
 
 function initCursor() {
@@ -153,6 +158,34 @@ function initPageStyles(pageName) {
             }
         }, 300);
     }
+}
+
+// Fix navigation links
+function fixNavigationLinks() {
+    const navLinks = document.querySelectorAll('.w-nav-link');
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+            e.preventDefault(); // Prevent default navigation
+
+            const href = this.getAttribute('href');
+            const currentPath = window.location.pathname;
+
+            // If we're already on this page, force a reload
+            if (currentPath.endsWith(href)) {
+                location.reload();
+                return;
+            }
+
+            // Show loading indicator
+            document.querySelector('.loading-screen').style.display = 'flex';
+
+            // Navigate to the page directly rather than letting Barba handle it
+            setTimeout(() => {
+                window.location.href = href;
+            }, 300);
+        });
+    });
 }
 
 // Add CSS to ensure styles are applied properly
